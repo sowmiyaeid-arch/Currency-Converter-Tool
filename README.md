@@ -1,0 +1,120 @@
+Intern Id:CITS3203
+[Convertertool.html](https://github.com/user-attachments/files/28869314/Convertertool.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        background:#f4f4f4;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+    }
+
+    .container{
+        background:white;
+        padding:25px;
+        border-radius:10px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+        width:350px;
+    }
+
+    h2{
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    input, select, button{
+        width:100%;
+        padding:10px;
+        margin:10px 0;
+        border:1px solid #ccc;
+        border-radius:5px;
+    }
+
+    button{
+        background:#007bff;
+        color:white;
+        border:none;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#0056b3;
+    }
+
+    .result{
+        margin-top:15px;
+        text-align:center;
+        font-size:18px;
+        font-weight:bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Currency Converter</h2>
+
+    <input type="number" id="amount" placeholder="Enter Amount" value="1">
+
+    <select id="from">
+        <option value="USD">USD</option>
+        <option value="INR">INR</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+    </select>
+
+    <select id="to">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+    </select>
+
+    <button onclick="convertCurrency()">Convert</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+const rates = {
+    USD: 1,
+    INR: 83.5,
+    EUR: 0.92,
+    GBP: 0.79,
+    JPY: 157.2
+};
+
+function convertCurrency() {
+    let amount = parseFloat(document.getElementById("amount").value);
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+
+    let usdAmount = amount / rates[from];
+    let converted = usdAmount * rates[to];
+
+    document.getElementById("result").innerHTML =
+        `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
+}
+</script>
+
+</body>
+</html>
+<img width="1920" height="1080" alt="Screenshot (57)" src="https://github.com/user-attachments/assets/1a6d299b-1917-4f0e-9369-838cb2bbf0a8" />
+<img width="1920" height="1080" alt="Screenshot (55)" src="https://github.com/user-attachments/assets/fcbe9044-78b7-486e-bc8f-c77cef168c28" />
